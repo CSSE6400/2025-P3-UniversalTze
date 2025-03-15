@@ -21,8 +21,8 @@ COPY todo todo
 
 # Running application
 
-#CMD ["pipx", "run", "poetry", "run", "flask", "--app", "todo", "run", \
-#    "--host", "0.0.0.0", "--port", "6400"]
+CMD ["pipx", "run", "poetry", "run", "flask", "--app", "todo", "run", \
+    "--host", "0.0.0.0", "--port", "6400"]
 
-CMD ["bash", "-c", "sleep 10 && pipx run poetry run flask \
-    --app todo run --host 0.0.0.0 --port 6400"]
+#CMD ["bash", "-c", "sleep 10 && pipx run poetry run flask \
+#    --app todo run --host 0.0.0.0 --port 6400"]
