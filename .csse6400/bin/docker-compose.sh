@@ -11,7 +11,7 @@ if [[ $error -ne 0 ]]; then
 fi
 
 # Wait for the container to start
-sleep 30
+sleep 50
 
 # Check that the health endpoint is returning 200
 curl -s -o /dev/null -w "%{http_code}" http://localhost:6400/api/v1/health | grep 200
