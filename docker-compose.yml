@@ -14,6 +14,7 @@ services:
     # Comment out or rename the volume to force a fresh initialization
     # Once it works,  you can uncomment the volumes line, 
     # but you'll need to make sure the local directory is empty first, so PostgreSQL can initialize it properly.
+    # Need to delete files/folders in db as it is not initialising properly if not. 
     volumes:
       - ./data/db:/var/lib/postgresql/data
     healthcheck:
