@@ -13,6 +13,9 @@ fi
 # Wait for the container to start
 sleep 50
 
+#Print out logs of database
+docker compose logs database
+
 # Check that the health endpoint is returning 200
 curl -s -o /dev/null -w "%{http_code}" http://localhost:6400/api/v1/health | grep 200
 error=$?
