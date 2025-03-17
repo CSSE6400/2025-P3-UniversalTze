@@ -6,8 +6,16 @@ services:
       POSTGRES_PASSWORD: verySecretPassword
       POSTGRES_USER: administrator
       POSTGRES_DB: todo
-    #volumes:
-    #  - ./data/db:/var/lib/postgresql/data
+    # The "could not open directory pg_notify: No such file or directory" error 
+    # usually happens when your PostgreSQL data directory is corrupted or incomplete.
+    # The error message "PostgreSQL Database directory appears to contain a database; 
+    # Skipping initialization" shows that PostgreSQL is trying to use an existing database but finding it corrupted
+    # or missing a file. 
+    # Comment out or rename the volume to force a fresh initialization
+    # Once it works,  you can uncomment the volumes line, 
+    # but you'll need to make sure the local directory is empty first, so PostgreSQL can initialize it properly.
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U administrator -d todo"]
       interval: 5s
