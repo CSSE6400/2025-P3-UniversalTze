@@ -6,6 +6,7 @@ docker compose up -d
 error=$?
 pid=$!
 if [[ $error -ne 0 ]]; then
+    docker compose logs database
     echo "Failed to run docker-compose up"
     exit 1
 fi
